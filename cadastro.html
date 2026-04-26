@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Usuário</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="login-container">
+    <h1>Cadastro</h1>
+
+    <form id="cadastroForm">
+      <input type="text" id="novoUsuario" placeholder="Novo usuário">
+      <input type="password" id="novaSenha" placeholder="Nova senha">
+      <button type="submit">Cadastrar</button>
+      <p id="mensagemCadastro"></p>
+    </form>
+
+    <nav class="menu">
+      <a href="index.html">Voltar ao Login</a>
+    </nav>
+  </main>
+
+  <script>
+    const cadastroForm = document.getElementById("cadastroForm");
+    const novoUsuario = document.getElementById("novoUsuario");
+    const novaSenha = document.getElementById("novaSenha");
+    const mensagemCadastro = document.getElementById("mensagemCadastro");
+
+    cadastroForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      if (novoUsuario.value.trim() === "" || novaSenha.value.trim() === "") {
+        mensagemCadastro.style.color = "#ff5252";
+        mensagemCadastro.textContent = "Preencha todos os campos!";
+        return;
+      }
+
+      mensagemCadastro.style.color = "#03dac6";
+      mensagemCadastro.textContent = "Usuário cadastrado com sucesso!";
+      cadastroForm.reset();
+    });
+  </script>
+</body>
+</html>

@@ -72,3 +72,10 @@ button:hover {
 .menu a:hover {
   color: #00bfa5;
 }
+
+#mensagemCadastro {
+  margin-top: 10px;
+  color: #ff5252;
+  font-weight: bold;
+  text-align: center;
+}
