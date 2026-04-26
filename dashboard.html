@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="login-container">
+    <h1>Dashboard</h1>
+
+    <nav class="menu">
+      <a href="index.html">Login</a>
+      <a href="cadastro.html">Cadastro</a>
+    </nav>
+
+    <p id="boasVindas"></p>
+
+    <button id="sair">Sair</button>
+  </main>
+
+  <script>
+    const usuarioAutenticado = localStorage.getItem("usuarioAutenticado");
+    const boasVindas = document.getElementById("boasVindas");
+    const sair = document.getElementById("sair");
+
+    if (!usuarioAutenticado) {
+      window.location.href = "index.html";
+    }
+
+    boasVindas.textContent = `Bem-vindo, ${usuarioAutenticado}!`;
+
+    sair.addEventListener("click", () => {
+      localStorage.removeItem("usuarioAutenticado");
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
